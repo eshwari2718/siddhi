@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -33,7 +34,6 @@
     color:#333;
   }
 
-  /* page card */
   .card{
     width:100%;
     max-width:920px;
@@ -59,7 +59,6 @@
     font-size:14px;
   }
 
-  /* floating shapes background */
   .float-area{ position:absolute; inset:0; pointer-events:none; overflow:hidden; z-index:0; }
   .float {
     position:absolute;
@@ -67,20 +66,16 @@
     height:18px;
     border-radius:50%;
     opacity:.9;
-    transform: translate3d(0,0,0);
     filter: drop-shadow(0 2px 6px rgba(0,0,0,0.06));
     animation: floatUp linear infinite;
   }
-  .float.star { width:12px; height:12px; clip-path: polygon(50% 0%,61% 35%,98% 35%,67% 57%,79% 91%,50% 70%,21% 91%,33% 57%,2% 35%,39% 35%); background: linear-gradient(180deg,#fff3f8,#fff7fb);}
-  .float.puff { background: linear-gradient(180deg,#fff0f7,#ffeefb); }
-  .float.blue { background: linear-gradient(180deg,#e8f0ff,#eaf6ff); }
+  .float.star { width:12px; height:12px; clip-path: polygon(50% 0%,61% 35%,98% 35%,67% 57%,79% 91%,50% 70%,21% 91%,33% 57%,2% 35%,39% 35%); }
   @keyframes floatUp {
     from { transform: translateY(30vh) scale(.9); opacity: 0; }
     20% { opacity: .9 }
     to { transform: translateY(-15vh) scale(1.05); opacity: 0; }
   }
 
-  /* layout */
   .content {
     position:relative;
     z-index:2;
@@ -90,7 +85,6 @@
     align-items:center;
   }
 
-  /* left: box / gallery / envelope area */
   .stage {
     min-height:420px;
     display:flex;
@@ -98,7 +92,6 @@
     justify-content:center;
   }
 
-  /* gift box */
   .gift {
     width:260px;
     height:200px;
@@ -119,18 +112,15 @@
     width:100%;
     height:22px;
     top:50%;
-    left:0;
     transform:translateY(-50%);
     background: linear-gradient(90deg, #ffd6f0, #ffd6d6);
   }
-  .gift .label{
+  .label{
     position:absolute;
     bottom:18px;
     font-weight:600;
     color:#9b2d6f;
-    letter-spacing:.2px;
   }
-  /* top lid */
   .lid {
     position:absolute;
     top:-14px;
@@ -146,24 +136,20 @@
   }
   .lid.open { transform: translateX(-50%) rotateX(170deg) translateY(-30px); }
 
-  /* sparkles */
-  .sparkles { position:absolute; inset:0; pointer-events:none; }
   .sparkles i{
     position:absolute;
     width:8px; height:8px; border-radius:2px;
-    background:linear-gradient(180deg,#fff2ff,#ffeaef);
-    opacity:.9; transform: rotate(25deg);
+    background:#fff2ff;
     animation: sparkle 1.8s linear infinite;
   }
   @keyframes sparkle {
-    0%{ transform: translateY(0) scale(.8); opacity:0 }
-    20%{ opacity:1; transform:translateY(-6px) scale(1.1) }
-    100%{ transform: translateY(-30px) scale(.6); opacity:0 }
+    0%{ opacity:0 }
+    20%{ opacity:1 }
+    100%{ opacity:0 }
   }
 
-  /* gallery */
   .gallery {
-    display:flex;
+    display:none;
     flex-direction:column;
     align-items:center;
     gap:12px;
@@ -173,21 +159,17 @@
     height:320px;
     border-radius:16px;
     overflow:hidden;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:linear-gradient(180deg,#fff,#fffafc);
+    background:#fff;
     box-shadow: 0 6px 20px rgba(120,90,140,0.06);
-    position:relative;
   }
   .photo {
     width:100%;
     height:100%;
     object-fit:cover;
-    transform: translateX(0);
-    transition: transform .6s cubic-bezier(.2,.9,.25,1), opacity .5s;
+    transition: transform .6s, opacity .5s;
   }
-  .controls { display:flex; gap:10px; align-items:center; justify-content:center; margin-top:6px; }
+  .controls { display:flex; gap:10px; margin-top:6px; }
+
   .btn {
     background:linear-gradient(180deg,#ffd9f0,#ffbdf0);
     border: none;
@@ -196,400 +178,238 @@
     padding:10px 16px;
     border-radius:12px;
     cursor:pointer;
-    box-shadow: 0 6px 12px rgba(250,150,200,0.12);
-    transition: transform .15s ease;
   }
-  .btn:active{ transform: translateY(2px) }
-  .counter{ color:var(--muted); font-size:13px; }
 
-  /* envelope area */
   .side {
     padding:18px;
     border-radius:12px;
-    background: linear-gradient(180deg,#fff,#fffafc);
+    background:#fff;
     box-shadow: 0 8px 30px rgba(80,60,100,0.04);
-    display:flex;
-    flex-direction:column;
-    gap:16px;
-    align-items:center;
-    justify-content:center;
   }
+
   .envelope {
     width:260px;
     height:160px;
     border-radius:14px;
-    background:linear-gradient(180deg,#fff6fb,#fffafc);
+    background:#fff6fb;
     position:relative;
     box-shadow: 0 8px 22px rgba(150,100,150,0.08);
-    display:flex;
-    align-items:center;
-    justify-content:center;
     cursor:pointer;
-    overflow:visible;
   }
   .env-flap {
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:58%;
-    background: linear-gradient(180deg,#ffdff6,#fff2fd);
+    position:absolute; width:100%; height:58%;
+    background:#ffdff6;
     border-radius:14px 14px 0 0;
-    transform-origin: top center;
-    transition: transform .9s cubic-bezier(.2,.9,.3,1);
-    box-shadow: 0 6px 14px rgba(200,150,200,0.08);
+    transform-origin: top;
+    transition:.9s;
   }
-  .env-body {
-    position:absolute;
-    bottom:0;
-    left:0;
-    width:100%;
-    height:62%;
-    border-radius:0 0 14px 14px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:600;
-    color:#6b2d6f;
-  }
-  .env-flap.open { transform: rotateX(180deg) translateY(-6px); }
+  .env-flap.open { transform: rotateX(180deg); }
 
-  /* paper */
   .paper {
     width:88%;
     height:86%;
-    background:linear-gradient(180deg,#ffffff,#fffefc);
+    background:#fff;
     border-radius:10px;
     padding:14px;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
-    transform-origin:center;
-    transform: translateY(10px) scale(.98);
     opacity:0;
-    transition: transform .6s, opacity .5s;
+    transform: translateY(10px) scale(.98);
+    transition:.6s;
     overflow:auto;
   }
-  .paper.visible{ transform: translateY(0) scale(1); opacity:1; }
+  .paper.visible{ opacity:1; transform:none; }
 
-  /* typewriter text */
-  .letter {
-    font-size:14px; line-height:1.55;
-    color:#3b2f3f; white-space:pre-wrap;
-    font-family: 'Poppins', sans-serif;
-  }
-  .letter .cursor {
-    display:inline-block;
-    width:8px;
-    height:14px;
-    background:#6b2d6f;
-    margin-left:6px;
-    animation: blink .9s steps(1) infinite;
-    vertical-align:middle;
-  }
+  .letter{ white-space:pre-wrap; line-height:1.55; }
+  .cursor{ display:inline-block; width:8px; height:14px; background:#6b2d6f; animation: blink .9s infinite; }
   @keyframes blink { 50%{ opacity:0 } }
 
-  /* final confetti burst */
-  .confetti {
+  .confetti{
     position:absolute;
-    left:50%; top:50%;
-    width:6px; height:12px;
     opacity:0;
-    transform: translate(-50%,-50%);
-    pointer-events:none;
   }
 
-  /* responsive */
   @media (max-width:980px){
-    .content{ grid-template-columns: 1fr; }
-    .side{ order:2 }
-    .gallery{ order:1 }
-    .card{ padding:18px; }
-    .photo-wrap{ width:100%; max-width:420px; height:300px }
+    .content{ grid-template-columns:1fr; }
   }
 </style>
 </head>
+
 <body>
 
 <div class="float-area" id="floatArea"></div>
 
-<div class="card" role="main" aria-label="Eshwari's gift to Siddhi">
+<div class="card">
   <h1>A Gift for my bgg 🩷</h1>
   <div class="sub">made with pastel vibes & lots of friendship love 💛</div>
 
   <div class="content">
-    <!-- left stage -->
-    <div class="stage">
-      <div id="leftInner" style="width:100%; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:16px;">
 
-        <!-- Gift box -->
-        <div class="gift" id="giftBox" aria-hidden="false" title="Click to open">
+    <div class="stage">
+      <div id="leftInner" style="display:flex; flex-direction:column; gap:16px; align-items:center;">
+
+        <!-- Gift Box -->
+        <div class="gift" id="giftBox">
           <div class="lid" id="lid"></div>
-          <div class="ribbon" aria-hidden="true"></div>
-          <div class="sparkles" aria-hidden="true">
-            <i style="left:20%; top:55%; animation-delay:.1s"></i>
-            <i style="left:72%; top:28%; animation-delay:.4s"></i>
-            <i style="left:46%; top:20%; animation-delay:.7s"></i>
-            <i style="left:80%; top:68%; animation-delay:1.1s"></i>
+          <div class="ribbon"></div>
+          <div class="sparkles">
+            <i style="left:20%; top:55%"></i>
+            <i style="left:72%; top:28%"></i>
+            <i style="left:46%; top:20%"></i>
+            <i style="left:80%; top:68%"></i>
           </div>
           <div class="label">Open Me 🎁</div>
         </div>
 
-        <!-- Gallery (hidden until box opened) -->
-        <div class="gallery" id="gallery" style="display:none;">
-          <div class="photo-wrap" id="photoWrap">
-            <img id="photo" class="photo" src="photo1.jpg" alt="Photo 1">
-          </div>
-
-          <div class="controls" aria-hidden="false">
+        <!-- Gallery -->
+        <div class="gallery" id="gallery">
+          <div class="photo-wrap"><img id="photo" class="photo" src="photo1.jpg"></div>
+          <div class="controls">
             <button class="btn" id="prevBtn">◀ Prev</button>
-            <div class="counter" id="counter">Photo 1 of 8</div>
+            <div id="counter">Photo 1 of 8</div>
             <button class="btn" id="nextBtn">Next ▶</button>
           </div>
         </div>
 
-        <!-- Envelope (hidden until last photo -> appears) -->
-        <div id="envelopeArea" style="display:none; margin-top:6px;">
-          <div class="envelope" id="envelope" title="Open the letter">
+        <!-- Envelope -->
+        <div id="envelopeArea" style="display:none;">
+          <div class="envelope" id="envelope">
             <div class="env-flap" id="envFlap"></div>
-            <div class="env-body">💌 Open Letter</div>
-            <div class="paper" id="paper" role="article" aria-live="polite">
-              <div class="letter" id="letterText"></div>
-            </div>
+            <div class="paper" id="paper"><div class="letter" id="letterText"></div></div>
           </div>
         </div>
 
       </div>
     </div>
 
-    <!-- right side: stepping / info -->
-    <aside class="side" aria-hidden="false">
-      <div style="text-align:center">
-        <strong style="color:#7b4b8f">How to use</strong>
-        <div style="font-size:13px; color:var(--muted); margin-top:6px">
-          Click the box → view photos (Next) → open the envelope to read the message.
-        </div>
-      </div>
+    <aside class="side">
+      <strong style="color:#7b4b8f;">How to use</strong>
+      <p style="color:var(--muted); font-size:13px;">Click the box → view photos → open the envelope.</p>
 
-      <div style="display:flex; gap:8px; align-items:center; justify-content:center; flex-direction:column;">
+      <div style="display:flex; flex-direction:column; align-items:center;">
         <div style="font-size:13px; color:var(--muted)">Progress</div>
-        <div id="progressBar" style="width:180px; height:10px; border-radius:999px; background:#ffeef9; overflow:hidden;">
+        <div style="width:180px; height:10px; background:#ffeef9; border-radius:999px;">
           <div id="progressFill" style="height:100%; width:0%; background:linear-gradient(90deg,#ffd4f1,#dfe7ff)"></div>
         </div>
       </div>
-
-      <div style="text-align:center; font-size:13px; color:var(--muted)">
-        Made with care by Eshwari 💕
-      </div>
     </aside>
+
   </div>
 </div>
 
-<!-- minimal JS -->
 <script>
-  // --- config ---
-  const photos = [
-    'photo1.jpg','photo2.jpg','photo3.jpg','photo4.jpg',
-    'photo5.jpg','photo6.jpg','photo7.jpg','photo8.jpg'
-  ];
-  const MESSAGE = `TO THE GIRL WHO CAME IN MY LIFE UNEXPECTEDLY💌
+const photos = [
+  'photo1.jpg','photo2.jpg','photo3.jpg','photo4.jpg',
+  'photo5.jpg','photo6.jpg','photo7.jpg','photo8.jpg'
+];
 
-When i first met you,i had no idea i was going to get this attached. I feel like the luckiest Person on this planet because having you is a dream. The one who always wants you to be happy, the one who always stood by her friends, the one who will always make you feel like a family, the one whom you can count on and for me that always been YOU & YOU no matter what. And even if i could put words together to tell you these things it wouldn't come anywhere near to show you how much you meant to me. You are the most caring and loving person i have ever met, and i feel so lucky to be with you. I promise to always cherish and respect you, and to support you in all your dreams and goals. You have brought so much joy and happiness in my life you are the reason i smile everyday!! Know that I'm not always the best with word's ,but i want you to know how i feel: you are special to me you don't even know. I hate when you are hard on yourself because you don't deserve that kind of negativity. You deserve everything good and perfect and sweet i want to try my best to give that to you I'm not perfect by any means but i want to be perfect for you. You're the most special thing to me. Thankyou for being mine!!🫂❤🧿
+const MESSAGE = `TO THE GIRL WHO CAME IN MY LIFE UNEXPECTEDLY💌
 
-I don't think I'll ever have the right words to fully express how much you mean to me but I'll try anyway.
+When i first met you ... (your full message here)`;
 
-Thankyou for showing up in my life and staying. For the laughter,the late night talks, the silent understanding and even the difficult conversations. Thankyou for being real with me and for reminding me that i matter-even on the days i forgot. You've taught me that love doesn't always come with fireworks it can also be quiet, patient and steady and that's exactly what you've been for me. You are not just someone i care about you're the person who changed the way i see the world and myself . So today i hope you feel just a fraction of the love you've given me. You deserve that and so much more. I hope this year brings you peace,joy, happiness and everything. I'm lucky i get to say i know you and even luckier that i get to love you🫶🏻
+const giftBox=document.getElementById('giftBox');
+const lid=document.getElementById('lid');
+const gallery=document.getElementById('gallery');
+const photo=document.getElementById('photo');
+const prevBtn=document.getElementById('prevBtn');
+const nextBtn=document.getElementById('nextBtn');
+const counter=document.getElementById('counter');
+const envelopeArea=document.getElementById('envelopeArea');
+const envelope=document.getElementById('envelope');
+const envFlap=document.getElementById('envFlap');
+const paper=document.getElementById('paper');
+const letterText=document.getElementById('letterText');
+const progressFill=document.getElementById('progressFill');
 
-And always remember you have my back no matter what!! I hope you know that every time i tell you i love you,I mean it with my entire soul and heart. I Love you so much Baby💋💌`;
+let idx=0;
+let typing=false;
 
-  // DOM
-  const giftBox = document.getElementById('giftBox');
-  const lid = document.getElementById('lid');
-  const gallery = document.getElementById('gallery');
-  const photoEl = document.getElementById('photo');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  const counter = document.getElementById('counter');
-  const envelopeArea = document.getElementById('envelopeArea');
-  const envelope = document.getElementById('envelope');
-  const envFlap = document.getElementById('envFlap');
-  const paper = document.getElementById('paper');
-  const letterText = document.getElementById('letterText');
-  const progressFill = document.getElementById('progressFill');
+giftBox.addEventListener('click',()=>{
+  lid.classList.add('open');
+  giftBox.style.pointerEvents='none';
+  setTimeout(()=>{
+    giftBox.style.display='none';
+    gallery.style.display='flex';
+    updateUI();
+  },650);
+});
 
-  let idx = 0;
-  let typing = false;
+function updateUI(){
+  photo.style.opacity=0;
+  photo.style.transform='translateX(20px)';
+  setTimeout(()=>{
+    photo.src=photos[idx];
+    counter.textContent=Photo ${idx+1} of ${photos.length};
+    progressFill.style.width=${((idx+1)/photos.length)*100}%;
 
-  // open gift -> show gallery
-  giftBox.addEventListener('click', () => {
-    lid.classList.add('open');
-    giftBox.style.pointerEvents='none';
-    setTimeout(() => {
-      giftBox.style.display='none';
-      gallery.style.display='flex';
-      updateUI();
-    }, 650);
-  });
+    photo.style.opacity=1;
+    photo.style.transform='translateX(0)';
 
-  function updateUI(){
-    photoEl.style.opacity = 0;
-    photoEl.style.transform = 'translateX(18px) scale(.99)';
-    setTimeout(()=>{
-      photoEl.src = photos[idx];
-      counter.textContent = Photo ${idx+1} of ${photos.length};
-      progressFill.style.width = ${((idx+1)/photos.length)*100}%;
-      photoEl.style.opacity = 1;
-      photoEl.style.transform = 'translateX(0) scale(1)';
-      // show envelope when last reached
-      if(idx === photos.length-1){
-        setTimeout(()=> {
-          envelopeArea.style.display='block';
-          envelopeArea.style.opacity = 0;
-          envelopeArea.style.transform = 'translateY(8px)';
-          setTimeout(()=> { envelopeArea.style.opacity = 1; envelopeArea.style.transform = 'translateY(0)'; },10);
-        }, 350);
-      } else {
-        envelopeArea.style.display='none';
-      }
-    }, 220);
-  }
+    if(idx===photos.length-1){
+      envelopeArea.style.display='block';
+    } else envelopeArea.style.display='none';
+  },200);
+}
 
-  prevBtn.addEventListener('click', ()=> {
-    if(idx>0){ idx--; updateUI(); }
-  });
-  nextBtn.addEventListener('click', ()=> {
-    if(idx < photos.length-1){
-      idx++; updateUI();
-    } else {
-      // already last - gently highlight envelope
-      envelope.animate([{ transform:'scale(1)' }, { transform:'scale(1.06)' }, {transform:'scale(1)'}], { duration:700 });
-    }
-  });
+prevBtn.onclick=()=>{ if(idx>0){ idx--; updateUI(); } };
+nextBtn.onclick=()=>{ if(idx<photos.length-1){ idx++; updateUI(); } };
 
-  // envelope open -> reveal typewriter
-  envelope.addEventListener('click', ()=>{
-    if(envFlap.classList.contains('open')) return;
-    envFlap.classList.add('open');
-    // show paper with a small delay then type
-    setTimeout(()=> {
-      paper.classList.add('visible');
-      // confetti burst
-      burstConfetti();
-      startTypewriter(MESSAGE);
-    }, 700);
-  });
+envelope.onclick=()=>{
+  if(envFlap.classList.contains('open')) return;
+  envFlap.classList.add('open');
 
-  // typewriter logic for long text
-  function startTypewriter(text){
-    if(typing) return;
-    typing = true;
-    letterText.innerHTML = '';
-    let i=0;
-    const speed = 12; // ms per char (small => faster)
-    function step(){
-      if(i < text.length){
-        const ch = text[i++];
-        // keep newlines as <br>
-        if(ch === '\n'){
-          letterText.innerHTML += '<br>';
-        } else {
-          letterText.innerHTML += escapeHtml(ch);
-        }
-        // add cursor effect
-        if(!letterText.querySelector('.cursor')){
-          const cursor = document.createElement('span');
-          cursor.className = 'cursor';
-          letterText.appendChild(cursor);
-        } else {
-          // move cursor to end
-          const c = letterText.querySelector('.cursor');
-          c.remove();
-          const cursor = document.createElement('span');
-          cursor.className = 'cursor';
-          letterText.appendChild(cursor);
-        }
-        // scroll down as we type
-        paper.scrollTop = paper.scrollHeight;
-        // pace variation for punctuation and line breaks
-        let pause = speed;
-        if(ch === ',' || ch === ';') pause += 30;
-        if(ch === '.' || ch === '!' || ch === '?') pause += 180;
-        if(ch === '\n') pause += 120;
-        setTimeout(step, pause);
-      } else {
-        // clean cursor after done
-        const cur = letterText.querySelector('.cursor');
-        if(cur) cur.remove();
-        typing = false;
-      }
-    }
-    step();
-  }
+  setTimeout(()=>{
+    paper.classList.add('visible');
+    burstConfetti();
+    typeText(MESSAGE);
+  },700);
+};
 
-  function escapeHtml(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function typeText(text){
+  if(typing) return;
+  typing=true;
+  letterText.innerHTML='';
+  let i=0;
 
-  // small confetti effect (pastel)
-  function burstConfetti(){
-    const root = document.body;
-    const colors = ['#ffd6e8','#dfe7ff','#fff3d6','#d7ffe6','#ffd7b6'];
-    for(let i=0;i<22;i++){
-      const el = document.createElement('div');
-      el.className = 'confetti';
-      const w = Math.random()*8 + 6;
-      const h = Math.random()*12 + 8;
-      el.style.width = w + 'px';
-      el.style.height = h + 'px';
-      el.style.background = colors[Math.floor(Math.random()*colors.length)];
-      el.style.left = (50 + (Math.random()*220 - 110)) + '%';
-      el.style.top = (50 + (Math.random()*40 - 20)) + '%';
-      el.style.opacity = 1;
-      el.style.transform = translate(-50%,-50%) rotate(${Math.random()*360}deg);
-      el.style.borderRadius = (Math.random()>0.6? '2px':'50%');
-      el.style.position = 'absolute';
-      el.style.zIndex = 40;
-      root.appendChild(el);
-      const vx = (Math.random()*2-1)*120;
-      const vy = - (Math.random()*180 + 90);
-      el.animate([
-        { transform: translate(-50%,-50%) translate(0px,0px) rotate(0deg), opacity:1 },
-        { transform: translate(-50%,-50%) translate(${vx}px,${vy}px) rotate(${Math.random()*360}deg), opacity:0.05 }
-      ], { duration: 1400 + Math.random()*700, easing:'cubic-bezier(.2,.8,.2,1)' });
-      setTimeout(()=> el.remove(), 2000);
+  function step(){
+    if(i<text.length){
+      const ch=text[i++];
+      letterText.innerHTML += (ch === '\n') ? '<br>' : ch;
+
+      paper.scrollTop = paper.scrollHeight;
+      setTimeout(step, 18);
     }
   }
+  step();
+}
 
-  // floating background shapes generator
-  (function spawnFloaters(){
-    const area = document.getElementById('floatArea');
-    const colors = ['#ffd6e8','#dfe7ff','#fff3d6','#d7ffe6'];
-    for(let i=0;i<16;i++){
-      const el = document.createElement('div');
-      el.className = 'float ' + (Math.random()>0.6? 'star':'puff') + (Math.random()>0.8? ' blue':'');
-      const size = 10 + Math.random()*34;
-      el.style.width = size + 'px';
-      el.style.height = size + 'px';
-      el.style.left = Math.random()*100 + '%';
-      el.style.top = 70 + Math.random()*30 + '%';
-      el.style.background = colors[Math.floor(Math.random()*colors.length)];
-      el.style.animationDuration = (6 + Math.random()*10) + 's';
-      el.style.animationDelay = (Math.random()*3) + 's';
-      area.appendChild(el);
-    }
-  })();
+function burstConfetti(){
+  const root=document.body;
+  const colors=['#ffd6e8','#dfe7ff','#fff3d6','#d7ffe6','#ffd7b6'];
 
-  // accessibility: keyboard handling for envelope open
-  envelope.addEventListener('keydown', (e)=>{
-    if(e.key === 'Enter' || e.key === ' ') envelope.click();
-  });
+  for(let i=0;i<18;i++){
+    const el=document.createElement('div');
+    el.className='confetti';
+    el.style.width='8px';
+    el.style.height='12px';
+    el.style.background=colors[Math.floor(Math.random()*colors.length)];
+    el.style.left='50%';
+    el.style.top='50%';
+    el.style.opacity=1;
+    el.style.transform=translate(-50%, -50%) rotate(${Math.random()*360}deg);
 
-  // preload images (gentle)
-  photos.forEach(p=>{
-    const im = new Image();
-    im.src = p;
-  });
+    root.appendChild(el);
 
-  // initial UI
-  document.addEventListener('DOMContentLoaded', ()=> {
-    // nothing else needed initially
-  });
+    const vx=(Math.random()*2-1)*120;
+    const vy=-(Math.random()*180 + 90);
+
+    el.animate([
+      { transform:'translate(-50%,-50%) translate(0,0)', opacity:1 },
+      { transform:translate(-50%,-50%) translate(${vx}px,${vy}px), opacity:0 }
+    ],{duration:1600});
+
+    setTimeout(()=> el.remove(),1800);
+  }
+}
+
 </script>
 
 </body>
