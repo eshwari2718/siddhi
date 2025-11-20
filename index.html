@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title> For my bby💗— From Eshwari 💕</title>
+<title>For my bby💗— From Eshwari 💕</title>
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
@@ -19,11 +19,13 @@
     --soft:#ffdff0;
     --muted:#6b7280;
   }
+
   *{box-sizing:border-box}
+
   body{
     margin:0;
     min-height:100vh;
-    font-family: 'Poppins', sans-serif;
+    font-family:'Poppins', sans-serif;
     background: radial-gradient(1200px 600px at 10% 10%, #fff9fb 0%, transparent 10%),
                 linear-gradient(135deg, #fffaf0 0%, #f3f7ff 50%, #fff 100%);
     display:flex;
@@ -39,14 +41,13 @@
     max-width:920px;
     border-radius:22px;
     padding:28px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
-    box-shadow: 0 10px 40px rgba(100, 80, 120, 0.08);
+    background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.7));
+    box-shadow:0 10px 40px rgba(100,80,120,0.08);
     position:relative;
-    overflow:visible;
   }
 
   h1{
-    font-family:'Dancing Script', cursive;
+    font-family:'Dancing Script',cursive;
     color:#ff5fa7;
     font-size:40px;
     margin:0 0 10px 0;
@@ -59,172 +60,140 @@
     font-size:14px;
   }
 
-  .float-area{ position:absolute; inset:0; pointer-events:none; overflow:hidden; z-index:0; }
-  .float {
-    position:absolute;
-    width:18px;
-    height:18px;
-    border-radius:50%;
-    opacity:.9;
-    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.06));
-    animation: floatUp linear infinite;
-  }
-  .float.star { width:12px; height:12px; clip-path: polygon(50% 0%,61% 35%,98% 35%,67% 57%,79% 91%,50% 70%,21% 91%,33% 57%,2% 35%,39% 35%); }
-  @keyframes floatUp {
-    from { transform: translateY(30vh) scale(.9); opacity: 0; }
-    20% { opacity: .9 }
-    to { transform: translateY(-15vh) scale(1.05); opacity: 0; }
-  }
-
-  .content {
+  .content{
     position:relative;
-    z-index:2;
     display:grid;
-    grid-template-columns: 1fr 430px;
+    grid-template-columns:1fr 430px;
     gap:24px;
     align-items:center;
   }
 
-  .stage {
-    min-height:420px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
+  .stage{ min-height:420px; display:flex; align-items:center; justify-content:center; }
 
-  .gift {
+  /* GIFT BOX */
+  .gift{
     width:260px;
     height:200px;
     border-radius:18px;
-    background: linear-gradient(180deg,var(--accent1),#fff);
-    box-shadow: 0 10px 30px rgba(200,150,200,0.12);
+    background:linear-gradient(180deg,var(--accent1),#fff);
+    box-shadow:0 10px 30px rgba(200,150,200,0.12);
     display:flex;
     align-items:center;
     justify-content:center;
     cursor:pointer;
     position:relative;
-    transform-origin:center;
-    transition: transform .25s ease;
+    transition:.25s;
   }
-  .gift:hover{ transform: translateY(-6px) rotate(-1deg); }
-  .gift .ribbon{
+  .gift:hover{ transform:translateY(-6px) rotate(-1deg); }
+
+  .ribbon{
     position:absolute;
     width:100%;
     height:22px;
     top:50%;
     transform:translateY(-50%);
-    background: linear-gradient(90deg, #ffd6f0, #ffd6d6);
+    background:linear-gradient(90deg,#ffd6f0,#ffd6d6);
   }
+
+  .lid{
+    position:absolute;
+    top:-14px;
+    width:90%;
+    height:44px;
+    background:linear-gradient(180deg,#ffdbe9,#ffd0e3);
+    border-radius:12px;
+    left:50%;
+    transform:translateX(-50%);
+    transform-origin:top;
+    transition:.8s cubic-bezier(.22,.9,.3,1);
+  }
+  .lid.open{
+    transform:translateX(-50%) rotateX(170deg) translateY(-30px);
+  }
+
   .label{
     position:absolute;
     bottom:18px;
     font-weight:600;
     color:#9b2d6f;
   }
-  .lid {
-    position:absolute;
-    top:-14px;
-    width:90%;
-    height:44px;
-    background: linear-gradient(180deg,#ffdbe9,#ffd0e3);
-    border-radius:12px;
-    left:50%;
-    transform:translateX(-50%);
-    transform-origin: top center;
-    box-shadow: 0 6px 14px rgba(200,150,200,0.12);
-    transition: transform .8s cubic-bezier(.22,.9,.3,1);
-  }
-  .lid.open { transform: translateX(-50%) rotateX(170deg) translateY(-30px); }
 
-  .sparkles i{
-    position:absolute;
-    width:8px; height:8px; border-radius:2px;
-    background:#fff2ff;
-    animation: sparkle 1.8s linear infinite;
-  }
-  @keyframes sparkle {
-    0%{ opacity:0 }
-    20%{ opacity:1 }
-    100%{ opacity:0 }
-  }
-
-  .gallery {
+  /* GALLERY */
+  .gallery{
     display:none;
     flex-direction:column;
     align-items:center;
     gap:12px;
   }
-  .photo-wrap {
+  .photo-wrap{
     width:380px;
     height:320px;
     border-radius:16px;
     overflow:hidden;
     background:#fff;
-    box-shadow: 0 6px 20px rgba(120,90,140,0.06);
+    box-shadow:0 6px 20px rgba(120,90,140,0.06);
   }
-  .photo {
+  .photo{
     width:100%;
     height:100%;
     object-fit:cover;
-    transition: transform .6s, opacity .5s;
+    transition:.6s;
   }
-  .controls { display:flex; gap:10px; margin-top:6px; }
 
-  .btn {
+  .controls{ display:flex; gap:10px; }
+  .btn{
     background:linear-gradient(180deg,#ffd9f0,#ffbdf0);
-    border: none;
+    border:none;
     color:#6b2160;
-    font-weight:600;
     padding:10px 16px;
     border-radius:12px;
     cursor:pointer;
   }
 
-  .side {
-    padding:18px;
-    border-radius:12px;
-    background:#fff;
-    box-shadow: 0 8px 30px rgba(80,60,100,0.04);
-  }
-
-  .envelope {
+  /* ENVELOPE */
+  .envelope{
     width:260px;
     height:160px;
     border-radius:14px;
     background:#fff6fb;
     position:relative;
-    box-shadow: 0 8px 22px rgba(150,100,150,0.08);
+    box-shadow:0 8px 22px rgba(150,100,150,0.08);
     cursor:pointer;
   }
-  .env-flap {
-    position:absolute; width:100%; height:58%;
+
+  .env-flap{
+    position:absolute;
+    width:100%;
+    height:58%;
     background:#ffdff6;
     border-radius:14px 14px 0 0;
-    transform-origin: top;
+    transform-origin:top;
     transition:.9s;
   }
-  .env-flap.open { transform: rotateX(180deg); }
+  .env-flap.open{ transform:rotateX(180deg); }
 
-  .paper {
+  .paper{
     width:88%;
     height:86%;
     background:#fff;
     border-radius:10px;
     padding:14px;
     opacity:0;
-    transform: translateY(10px) scale(.98);
+    transform:translateY(10px) scale(.98);
     transition:.6s;
     overflow:auto;
   }
-  .paper.visible{ opacity:1; transform:none; }
+  .paper.visible{
+    opacity:1;
+    transform:none;
+  }
 
   .letter{ white-space:pre-wrap; line-height:1.55; }
-  .cursor{ display:inline-block; width:8px; height:14px; background:#6b2d6f; animation: blink .9s infinite; }
-  @keyframes blink { 50%{ opacity:0 } }
 
-  .confetti{
-    position:absolute;
-    opacity:0;
+  #progressFill{
+    height:100%;
+    background:linear-gradient(90deg,#ffd4f1,#dfe7ff);
+    border-radius:999px;
   }
 
   @media (max-width:980px){
@@ -234,8 +203,6 @@
 </head>
 
 <body>
-
-<div class="float-area" id="floatArea"></div>
 
 <div class="card">
   <h1>A Gift for my bgg 🩷</h1>
@@ -250,18 +217,14 @@
         <div class="gift" id="giftBox">
           <div class="lid" id="lid"></div>
           <div class="ribbon"></div>
-          <div class="sparkles">
-            <i style="left:20%; top:55%"></i>
-            <i style="left:72%; top:28%"></i>
-            <i style="left:46%; top:20%"></i>
-            <i style="left:80%; top:68%"></i>
-          </div>
           <div class="label">Open Me 🎁</div>
         </div>
 
         <!-- Gallery -->
         <div class="gallery" id="gallery">
-          <div class="photo-wrap"><img id="photo" class="photo" src="photo1.jpg"></div>
+          <div class="photo-wrap">
+            <img id="photo" class="photo" src="photo1.jpg">
+          </div>
           <div class="controls">
             <button class="btn" id="prevBtn">◀ Prev</button>
             <div id="counter">Photo 1 of 8</div>
@@ -273,7 +236,9 @@
         <div id="envelopeArea" style="display:none;">
           <div class="envelope" id="envelope">
             <div class="env-flap" id="envFlap"></div>
-            <div class="paper" id="paper"><div class="letter" id="letterText"></div></div>
+            <div class="paper" id="paper">
+              <div class="letter" id="letterText"></div>
+            </div>
           </div>
         </div>
 
@@ -287,7 +252,7 @@
       <div style="display:flex; flex-direction:column; align-items:center;">
         <div style="font-size:13px; color:var(--muted)">Progress</div>
         <div style="width:180px; height:10px; background:#ffeef9; border-radius:999px;">
-          <div id="progressFill" style="height:100%; width:0%; background:linear-gradient(90deg,#ffd4f1,#dfe7ff)"></div>
+          <div id="progressFill" style="width:0%;"></div>
         </div>
       </div>
     </aside>
@@ -303,114 +268,100 @@ const photos = [
 
 const MESSAGE = `TO THE GIRL WHO CAME IN MY LIFE UNEXPECTEDLY💌
 
-When i first met you ... (your full message here)`;
+When i first met you ... (your full message here)
+`;
 
-const giftBox=document.getElementById('giftBox');
-const lid=document.getElementById('lid');
-const gallery=document.getElementById('gallery');
-const photo=document.getElementById('photo');
-const prevBtn=document.getElementById('prevBtn');
-const nextBtn=document.getElementById('nextBtn');
-const counter=document.getElementById('counter');
-const envelopeArea=document.getElementById('envelopeArea');
-const envelope=document.getElementById('envelope');
-const envFlap=document.getElementById('envFlap');
-const paper=document.getElementById('paper');
-const letterText=document.getElementById('letterText');
-const progressFill=document.getElementById('progressFill');
+const giftBox = document.getElementById('giftBox');
+const lid = document.getElementById('lid');
+const gallery = document.getElementById('gallery');
+const photo = document.getElementById('photo');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const counter = document.getElementById('counter');
+const envelopeArea = document.getElementById('envelopeArea');
+const envelope = document.getElementById('envelope');
+const envFlap = document.getElementById('envFlap');
+const paper = document.getElementById('paper');
+const letterText = document.getElementById('letterText');
+const progressFill = document.getElementById('progressFill');
 
-let idx=0;
-let typing=false;
+let idx = 0;
+let typing = false;
 
-giftBox.addEventListener('click',()=>{
+giftBox.addEventListener('click', () => {
   lid.classList.add('open');
-  giftBox.style.pointerEvents='none';
-  setTimeout(()=>{
-    giftBox.style.display='none';
-    gallery.style.display='flex';
+
+  giftBox.style.pointerEvents = 'none';
+
+  setTimeout(() => {
+    giftBox.style.display = 'none';
+    gallery.style.display = 'flex';
     updateUI();
-  },650);
+  }, 650);
 });
 
 function updateUI(){
-  photo.style.opacity=0;
-  photo.style.transform='translateX(20px)';
-  setTimeout(()=>{
-    photo.src=photos[idx];
-    counter.textContent=Photo ${idx+1} of ${photos.length};
-    progressFill.style.width=${((idx+1)/photos.length)*100}%;
+  photo.style.opacity = 0;
 
-    photo.style.opacity=1;
-    photo.style.transform='translateX(0)';
+  setTimeout(() => {
+    photo.src = photos[idx];
+    counter.textContent = `Photo ${idx+1} of ${photos.length}`;
+    progressFill.style.width = `${((idx+1)/photos.length)*100}%`;
 
-    if(idx===photos.length-1){
-      envelopeArea.style.display='block';
-    } else envelopeArea.style.display='none';
-  },200);
+    photo.style.opacity = 1;
+
+    if(idx === photos.length - 1){
+      envelopeArea.style.display = 'block';
+    } else {
+      envelopeArea.style.display = 'none';
+    }
+  }, 200);
 }
 
-prevBtn.onclick=()=>{ if(idx>0){ idx--; updateUI(); } };
-nextBtn.onclick=()=>{ if(idx<photos.length-1){ idx++; updateUI(); } };
+prevBtn.onclick = () => {
+  if(idx > 0){
+    idx--;
+    updateUI();
+  }
+};
 
-envelope.onclick=()=>{
+nextBtn.onclick = () => {
+  if(idx < photos.length - 1){
+    idx++;
+    updateUI();
+  }
+};
+
+envelope.onclick = () => {
   if(envFlap.classList.contains('open')) return;
+
   envFlap.classList.add('open');
 
-  setTimeout(()=>{
+  setTimeout(() => {
     paper.classList.add('visible');
-    burstConfetti();
     typeText(MESSAGE);
-  },700);
+  }, 700);
 };
 
 function typeText(text){
   if(typing) return;
-  typing=true;
-  letterText.innerHTML='';
-  let i=0;
+  typing = true;
+
+  letterText.innerHTML = '';
+  let i = 0;
 
   function step(){
-    if(i<text.length){
-      const ch=text[i++];
+    if(i < text.length){
+      const ch = text[i++];
       letterText.innerHTML += (ch === '\n') ? '<br>' : ch;
-
       paper.scrollTop = paper.scrollHeight;
-      setTimeout(step, 18);
+      setTimeout(step, 20);
     }
   }
   step();
 }
-
-function burstConfetti(){
-  const root=document.body;
-  const colors=['#ffd6e8','#dfe7ff','#fff3d6','#d7ffe6','#ffd7b6'];
-
-  for(let i=0;i<18;i++){
-    const el=document.createElement('div');
-    el.className='confetti';
-    el.style.width='8px';
-    el.style.height='12px';
-    el.style.background=colors[Math.floor(Math.random()*colors.length)];
-    el.style.left='50%';
-    el.style.top='50%';
-    el.style.opacity=1;
-    el.style.transform=translate(-50%, -50%) rotate(${Math.random()*360}deg);
-
-    root.appendChild(el);
-
-    const vx=(Math.random()*2-1)*120;
-    const vy=-(Math.random()*180 + 90);
-
-    el.animate([
-      { transform:'translate(-50%,-50%) translate(0,0)', opacity:1 },
-      { transform:translate(-50%,-50%) translate(${vx}px,${vy}px), opacity:0 }
-    ],{duration:1600});
-
-    setTimeout(()=> el.remove(),1800);
-  }
-}
-
 </script>
 
 </body>
 </html>
+
