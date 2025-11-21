@@ -385,6 +385,8 @@
 
 <!-- minimal JS -->
 <script>
+document.addEventListener("DOMContentLoaded", () => {
+
 /* ----------------------------------------------------
    CONFIG
 ---------------------------------------------------- */
@@ -501,7 +503,7 @@ envelope.addEventListener('click', () => {
 });
 
 /* ----------------------------------------------------
-   TYPEWRITER EFFECT (FIXED & SAFER)
+   TYPEWRITER EFFECT (STABLE)
 ---------------------------------------------------- */
 function startTypewriter(text){
   if(typing) return;
@@ -526,7 +528,6 @@ function startTypewriter(text){
     }
 
     updateCursor();
-
     paper.scrollTop = paper.scrollHeight;
 
     let delay = 12;
@@ -553,7 +554,7 @@ function escapeHtml(s){
 }
 
 /* ----------------------------------------------------
-   CONFETTI (MORE STABLE)
+   CONFETTI
 ---------------------------------------------------- */
 function burstConfetti(){
   const colors = ['#ffd6e8','#dfe7ff','#fff3d6','#d7ffe6','#ffd7b6'];
@@ -591,7 +592,7 @@ function burstConfetti(){
 }
 
 /* ----------------------------------------------------
-   FLOATING SHAPES (NO OVERFLOW ERRORS)
+   FLOATERS
 ---------------------------------------------------- */
 (function spawnFloaters(){
   const area = document.getElementById('floatArea');
@@ -611,7 +612,10 @@ function burstConfetti(){
     area.appendChild(el);
   }
 })();
+
+}); // END DOMContentLoaded
 </script>
+
 
 
 </body>
